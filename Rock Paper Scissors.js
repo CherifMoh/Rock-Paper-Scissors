@@ -10,9 +10,9 @@ function game(playerMove){
     if(playerMove === CompCh){
         Result ='Tie' ;     
         score.tie += 1;
-    }else if ((playerMove === 'Rock' && CompCh === 'scissors') ||
-      (playerMove === 'Paper' && CompCh === 'rock') ||
-      (playerMove === 'Scissors' && CompCh === 'paper') ){
+    }else if ((playerMove === 'Rock' && CompCh === 'Scissors') ||
+      (playerMove === 'Paper' && CompCh === 'Rock') ||
+      (playerMove === 'Scissors' && CompCh === 'Paper') ){
         Result =' You win'
         score.Win += 1;
     }else{                
@@ -24,20 +24,20 @@ function game(playerMove){
     document.querySelector('.js-result').innerHTML = Result;
     document.querySelector('.js-moves').innerHTML = 
     `You
-    <img src="./rock paper scissors/${playerMove}-emoji.png" class="move-icon">
+    <img src="./assets/${playerMove}-emoji.png" class="move-icon">
       - 
-      <img src="./rock paper scissors/${CompCh}-emoji.png" class="move-icon">
+      <img src="./assets/${CompCh}-emoji.png" class="move-icon">
      Computer `;
     document.querySelector('.js-score').innerHTML = `Wins : ${score.Win}, Losses : ${score.lose}, Ties : ${score.tie}`;
 }
 function PickComputerMove(){
     const rN = Math.random();
     if(rN<1/3){
-        CompCh = 'rock'
+        CompCh = 'Rock'
     }else if (rN>2/3){
-        CompCh = 'scissors'
+        CompCh = 'Scissors'
     }else{
-        CompCh = 'paper'
+        CompCh = 'Paper'
     };
 } 
 function reset() {
@@ -57,11 +57,11 @@ function autoPlay(){
         IntervalId = setInterval(function (){
             const rN = Math.random();
             if(rN<1/3){
-                CompCh = 'rock'
+                CompCh = 'Rock'
             }else if (rN>2/3){
-                CompCh = 'scissors'
+                CompCh = 'Scissors'
             }else{
-                CompCh = 'paper'
+                CompCh = 'Paper'
             };
             const playerMove = CompCh;
             console.log(playerMove);
